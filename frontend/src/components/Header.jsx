@@ -12,13 +12,12 @@ const Header = () => {
   };
 
   return (
-    <header className={tw`bg-teal-400 p-4 fixed top-0 left-0 w-full z-50`}>
+    <header className={tw`bg-transparent p-4 fixed top-0 left-0 w-full z-50 shadow-md`}>
       <div className={tw`container mx-auto flex items-center justify-between`}>
-
         {/* Logo */}
         <div className={tw`text-white text-2xl font-bold`}>
           <img
-            src='/assets/logo_hsti.png' 
+            src='../src/assets/logo_hsti.png' 
             alt='Logo HS TI'
             className={tw`h-8`} 
           />
@@ -27,10 +26,10 @@ const Header = () => {
         {/* Menu - para telas grandes */}
         <nav className={tw`hidden md:flex`}>
           <ul className={tw`flex space-x-8`}>
-            <li><a href="/" className={tw`text-white hover:text-teal-200`}>Home</a></li>
-            <li><a href="#quem-somos" className={tw`text-white hover:text-teal-200`}>Quem Somos</a></li>
-            <li><a href="#o-que-fazemos" className={tw`text-white hover:text-teal-200`}>O que Fazemos</a></li>
-            <li><a href="#contato" className={tw`text-white hover:text-teal-200`}>Contato</a></li>
+            <li><a href="/" className={tw`text-white font-bold hover:text-teal-200`}>Home</a></li>
+            <li><a href="#quem-somos" className={tw`text-white font-bold hover:text-teal-200`}>Quem Somos</a></li>
+            <li><a href="#o-que-fazemos" className={tw`text-white font-bold hover:text-teal-200`}>O que Fazemos</a></li>
+            <li><a href="#contato" className={tw`text-white font-bold hover:text-teal-200`}>Contato</a></li>
           </ul>
         </nav>
 
@@ -63,7 +62,7 @@ const Header = () => {
           {/* Botão do Dropdown de Idioma */}
           <button 
             className={tw`text-white hover:text-teal-200`} 
-            onClick={() => setDropdownOpen(!dropdownOpen)} // Alterna o estado do dropdown
+            onClick={() => setDropdownOpen(!dropdownOpen)} 
           >
             {language === 'pt' ? 'Português' : language === 'en' ? 'English' : 'Español'}
           </button>
