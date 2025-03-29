@@ -33,7 +33,7 @@ const Header = () => {
           </ul>
         </nav>
 
-        {/* Botão para o Menu Hamburguer */}
+        {/* Btn Menu Hamburguer */}
         <div className={tw`md:hidden`}>
           <button
             onClick={() => setMenuOpen(!menuOpen)}
@@ -45,7 +45,7 @@ const Header = () => {
           </button>
         </div>
 
-        {/* Menu Hamburguer para telas pequenas */}
+        {/* Menu Hamburguer-telas pequenas */}
         {menuOpen && (
           <nav className={tw`absolute top-16 left-0 w-full bg-teal-400 p-4`}>
             <ul className={tw`flex flex-col space-y-4`}>
@@ -59,21 +59,37 @@ const Header = () => {
 
         {/* Dropdown de Idioma */}
         <div className={tw`relative`}>
-          {/* Botão do Dropdown de Idioma */}
+          
           <button 
             className={tw`text-white hover:text-teal-200`} 
             onClick={() => setDropdownOpen(!dropdownOpen)} 
           >
-            {language === 'pt' ? 'Português' : language === 'en' ? 'English' : 'Español'}
+            
+            {language === 'pt' ? (
+              <i className="bx bx-flag bx-tada"></i> 
+            ) : language === 'en' ? (
+              <i className="bx bx-flag-us bx-tada"></i> 
+            ) : (
+              <i className="bx bx-flag-es bx-tada"></i> 
+            )}
+            <span className={tw`ml-2`}>
+              {language === 'pt' ? 'Português' : language === 'en' ? 'English' : 'Español'}
+            </span>
           </button>
 
           {/* Menu de Idiomas */}
           {dropdownOpen && (
             <div className={tw`absolute right-0 bg-white text-black shadow-lg rounded-md mt-2`}>
               <ul className={tw`py-2`}>
-                <li><a href="#" className={tw`block px-4 py-2 text-sm`} onClick={() => handleLanguageChange('pt')}>Português</a></li>
-                <li><a href="#" className={tw`block px-4 py-2 text-sm`} onClick={() => handleLanguageChange('en')}>English</a></li>
-                <li><a href="#" className={tw`block px-4 py-2 text-sm`} onClick={() => handleLanguageChange('es')}>Español</a></li>
+                <li><a href="#" className={tw`block px-4 py-2 text-sm`} onClick={() => handleLanguageChange('pt')}>
+                  <i className="bx bx-flag bx-tada"></i> Português
+                </a></li>
+                <li><a href="#" className={tw`block px-4 py-2 text-sm`} onClick={() => handleLanguageChange('en')}>
+                  <i className="bx bx-flag-us bx-tada"></i> English
+                </a></li>
+                <li><a href="#" className={tw`block px-4 py-2 text-sm`} onClick={() => handleLanguageChange('es')}>
+                  <i className="bx bx-flag-es bx-tada"></i> Español
+                </a></li>
               </ul>
             </div>
           )}
