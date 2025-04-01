@@ -10,7 +10,7 @@ const Hero = () => {
         }}
       >
         <div className={tw`flex h-full`}>
-          {/* Seção Hero (à esquerda) */}
+        
           <div className={tw`w-1/2 flex justify-start items-center pl-16 z-10`}>
             <div className={tw`p-10 max-w-xl shadow-lg rounded-lg animate__animated animate__fadeIn`}>
               <h1
@@ -38,7 +38,7 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* Seção Formulário de Cadastro (à direita) */}
+         
           <div className={tw`w-1/2 flex justify-center items-center`}>
             <div className={tw`bg-white p-8 max-w-md w-full shadow-lg rounded-lg`}>
               <h2 className={tw`text-2xl font-bold mb-6 text-center`}>
