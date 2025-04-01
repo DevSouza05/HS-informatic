@@ -17,9 +17,9 @@ const Header = () => {
         {/* Logo */}
         <div className={tw`text-white text-2xl font-bold`}>
           <img
-            src='../src/assets/logo_hsti.png' 
+            src='../src/assets/grpLogo-hsti.png' 
             alt='Logo HS TI'
-            className={tw`h-8`} 
+            className={tw`h-16`} 
           />
         </div>
 
