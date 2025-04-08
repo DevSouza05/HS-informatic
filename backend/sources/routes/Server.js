@@ -1,14 +1,19 @@
 const express = require('express');
-const { createUser, getUserByEmail } = require('/backend/dao/UserDAO.js');
+const morgan = require('morgan');
+const dotenv =require('dotenv')
 
+dotenv.config()
 const app = express();
+
 const port = process.env.PORT || 5000;
 
 app.use(express.json()); 
 
+app.use(morgan('dev'))
+
 
 app.get('/Home', (req, res) => {
-  res.json("Bem-vindo à HS-Ware");
+  res.status(200).send("Bem-vindo à HS-Ware");
 });
 
 
