@@ -14,7 +14,7 @@ const Header = () => {
   return (
     <header className={tw`bg-transparent p-4 fixed top-0 left-0 w-full z-50 shadow-md`}>
       <div className={tw`container mx-auto flex items-center justify-between`}>
-        {/* Logo */}
+    
         <div className={tw`text-white text-2xl font-bold`}>
           <img
             src='../src/assets/grpLogo-hsti.png' 
@@ -23,7 +23,7 @@ const Header = () => {
           />
         </div>
 
-        {/* Menu - para telas grandes */}
+      
         <nav className={tw`hidden md:flex`}>
           <ul className={tw`flex space-x-8`}>
             <li><a href="/" className={tw`text-white font-bold hover:text-teal-200`}>Home</a></li>
@@ -33,7 +33,6 @@ const Header = () => {
           </ul>
         </nav>
 
-        {/* Btn Menu Hamburguer */}
         <div className={tw`md:hidden`}>
           <button
             onClick={() => setMenuOpen(!menuOpen)}
@@ -45,7 +44,7 @@ const Header = () => {
           </button>
         </div>
 
-        {/* Menu Hamburguer-telas pequenas */}
+    
         {menuOpen && (
           <nav className={tw`absolute top-16 left-0 w-full bg-teal-400 p-4`}>
             <ul className={tw`flex flex-col space-y-4`}>
@@ -57,7 +56,7 @@ const Header = () => {
           </nav>
         )}
 
-        {/* Dropdown de Idioma */}
+     
         <div className={tw`relative`}>
           
           <button 
@@ -77,7 +76,7 @@ const Header = () => {
             </span>
           </button>
 
-          {/* Menu de Idiomas */}
+         
           {dropdownOpen && (
             <div className={tw`absolute right-0 bg-white text-black shadow-lg rounded-md mt-2`}>
               <ul className={tw`py-2`}>
