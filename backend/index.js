@@ -2,6 +2,7 @@
 
 const express = require('express');
 const db = require('./db')
+const dotenv = require('dotenv').config();
 const app = express();
 
 app.use(express.json());
@@ -10,7 +11,7 @@ app.use(express.json());
 const port = process.env.port || 5000;
 
 app.get('/Home', (req,res)=>{
-    res.send('Welcome this Hsti!')
+    res.send('Welcome to Hsti!')
 })
 
 app.get('/Usuarios', (req,res)=>{
