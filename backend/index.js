@@ -14,7 +14,7 @@ app.get('/Home', (req,res)=>{
     res.send('Welcome to Hsti!')
 })
 
-app.get('/Usuarios', (req,res)=>{
+app.get('/users', (req,res)=>{
     db.query('SELECT * FROM usuarios', (err, results) => {
         if (err) {
           return res.status(500).json({ erro: err.message });
