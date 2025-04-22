@@ -1,14 +1,12 @@
 import React from "react";
-import Hero from "../components/Hero";
+import Form from "../components/Forms";
 
-
-const  Login = () =>{
-    return (
-        <>
-    
-        <Hero/>
-        </>
-    )
-}
+const Login = () => {
+  return (
+    <>
+      <Form formType="login" />
+    </>
+  );
+};
 
 export default Login;

@@ -1,17 +1,8 @@
 import React from "react";
-import Hero from "../components/Hero";
-import Header from "../components/Header";
+import Form from "../components/Forms";
 
+const Cadastrar = () => {
+  return <Form formType="register" />;
+};
 
-const Cadastro = () => {
-    return (
-        <>
-            <Header />
-            <Hero />
-        </>
-    )
-
-
-}
-
-export default Cadastro;
+export default Cadastrar;

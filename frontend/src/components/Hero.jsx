@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
 import { tw } from "twind";
-import Form from "./Forms";
+
+
 
 const Hero = () => {
   const [message, setMessage] = useState("");
 
-  // Requisição GET ao backend
+
   useEffect(() => {
     fetch("http://localhost:5000/Home")
       .then((response) => response.json())
@@ -15,6 +16,7 @@ const Hero = () => {
 
   return (
     <>
+    
       <div
         className={tw`relative bg-cover bg-center h-screen w-full`}
         style={{
@@ -23,6 +25,7 @@ const Hero = () => {
         }}
       >
         <div className={tw`flex h-full`}>
+     
           <div className={tw`w-1/2 flex justify-start items-center pl-16 z-10`}>
             <div
               className={tw`p-10 max-w-xl shadow-lg rounded-lg animate__animated animate__fadeIn`}
@@ -50,9 +53,9 @@ const Hero = () => {
                 Saiba mais
               </a>
             </div>
+            
           </div>
-
-          <Form />
+            
         </div>
       </div>
     </>
