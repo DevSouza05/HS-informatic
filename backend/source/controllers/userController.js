@@ -1,4 +1,6 @@
 const db = require('../models/db');
+const dotenv = require ('dotenv').config();
+const jwt = require('jsonwebtoken');
 
 
 exports.registerUser = (req, res) => {
@@ -36,7 +38,30 @@ exports.loginUser = (req, res) => {
     }
 
     if (result.length > 0) {
-      return res.json({ status: 'Sucesso', message: 'Login realizado com sucesso.' });
+      const user = result[0];
+
+      
+    try{
+      const secret = process.env.SECRET
+      const token = jwt .sign(
+        {id:user.id, email: user.email},
+      secret,
+      { expiresIn: '1h' }
+    );
+
+    res.status(200).json({
+      status: 'Sucesso',
+          message: 'Autenticação realizada com sucesso.',
+          token: token,
+    });
+
+    }catch (err) {
+      console.error(err);
+      return res.status(500).json({
+        status: 'Erro',
+        message: 'Erro ao gerar o token.',
+      });
+    }
     } else {
       return res.json({ status: 'Erro', message: 'E-mail ou senha inválidos.' });
     }

@@ -12,6 +12,7 @@ app.get('/home', (req, res) => {
   res.send('Welcome to Hsti!');
 });
 
+
 app.use('/', userRoutes);
 
 module.exports = app;
