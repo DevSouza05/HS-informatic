@@ -20,7 +20,7 @@ const Form = ({ formType = "register" }) => {
 
     try {
       const response = await fetch(
-        isRegister ? "http://localhost:5000/users" : "http://localhost:5000/login",
+        isRegister ? "http://localhost:5000/cadastro" : "http://localhost:5000/login",
         {
           method: "POST",
           headers: {
@@ -49,25 +49,22 @@ const Form = ({ formType = "register" }) => {
   };
 
   return (
-    <div className={tw`w-full min-h-screen flex justify-center items-center bg-gray-100`}>
-      <div className={tw`bg-white p-8 max-w-md w-full shadow-lg rounded-lg`}>
-        <h2 className={tw`text-2xl font-bold mb-6 text-center`}>
+    <div className={tw`w-full min-h-screen flex justify-center items-center bg-gradient-to-br from-green-50 to-white`}>
+      <div className={tw`bg-white p-10 max-w-md w-full shadow-xl rounded-2xl border border-green-100`}>
+        <h2 className={tw`text-3xl font-bold mb-6 text-center text-green-700`}>
           {isRegister ? "Cadastre-se" : "Login"}
         </h2>
 
         <form onSubmit={handleSubmit}>
           {isRegister && (
-            <div className={tw`mb-4`}>
-              <label
-                className={tw`block text-sm font-medium text-gray-700`}
-                htmlFor="name"
-              >
+            <div className={tw`mb-5`}>
+              <label className={tw`block text-sm font-medium text-gray-700`} htmlFor="name">
                 Nome
               </label>
               <input
                 id="name"
                 type="text"
-                className={tw`mt-1 p-3 w-full border border-gray-300 rounded-md`}
+                className={tw`mt-2 p-3 w-full border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-300`}
                 placeholder="Digite seu nome"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
@@ -76,17 +73,14 @@ const Form = ({ formType = "register" }) => {
             </div>
           )}
 
-          <div className={tw`mb-4`}>
-            <label
-              className={tw`block text-sm font-medium text-gray-700`}
-              htmlFor="email"
-            >
+          <div className={tw`mb-5`}>
+            <label className={tw`block text-sm font-medium text-gray-700`} htmlFor="email">
               E-mail
             </label>
             <input
               id="email"
               type="email"
-              className={tw`mt-1 p-3 w-full border border-gray-300 rounded-md`}
+              className={tw`mt-2 p-3 w-full border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-300`}
               placeholder="Digite seu e-mail"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -95,16 +89,13 @@ const Form = ({ formType = "register" }) => {
           </div>
 
           <div className={tw`mb-6`}>
-            <label
-              className={tw`block text-sm font-medium text-gray-700`}
-              htmlFor="password"
-            >
+            <label className={tw`block text-sm font-medium text-gray-700`} htmlFor="password">
               Senha
             </label>
             <input
               id="password"
               type="password"
-              className={tw`mt-1 p-3 w-full border border-gray-300 rounded-md`}
+              className={tw`mt-2 p-3 w-full border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-300`}
               placeholder="Digite sua senha"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
@@ -120,7 +111,7 @@ const Form = ({ formType = "register" }) => {
 
           <button
             type="submit"
-            className={tw`w-full py-3 bg-teal-400 text-black rounded-lg hover:bg-teal-500`}
+            className={tw`w-full py-3 bg-green-600 text-white font-semibold rounded-lg hover:bg-green-700 transition duration-300`}
             disabled={isSubmitting}
           >
             {isSubmitting
