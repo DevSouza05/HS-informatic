@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { tw } from "twind";
+import { useNavigate } from "react-router-dom";
+
 
 const Form = ({ formType = "register" }) => {
   const isRegister = formType === "register";
@@ -9,6 +11,9 @@ const Form = ({ formType = "register" }) => {
   const [password, setPassword] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [responseMessage, setResponseMessage] = useState("");
+
+  const navigate = useNavigate();
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -33,13 +38,14 @@ const Form = ({ formType = "register" }) => {
       const data = await response.json();
 
       if (data.status === "Sucesso") {
-        setResponseMessage(
-          isRegister
-            ? "Cadastro realizado com sucesso!"
-            : "Login efetuado com sucesso!"
-        );
+        if (!isRegister) {
+          localStorage.setItem("token", data.token); 
+          navigate("/loggedIn"); 
+        } else {
+          setResponseMessage("Cadastro realizado com sucesso!");
+        }
       } else {
-        setResponseMessage("Erro ao processar, tente novamente.");
+        setResponseMessage(data.message || "Erro ao processar, tente novamente.");
       }
     } catch (error) {
       setResponseMessage("Erro ao enviar os dados. Tente novamente.");
